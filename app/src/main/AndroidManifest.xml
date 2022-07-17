@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gc.theobviousproject">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
+        android:name=".ObviousApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
