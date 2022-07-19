@@ -31,7 +31,7 @@ fun ShowGridItem(imageData: ImageData, navController: NavController, position: I
         model = imageData.url,
         contentDescription = imageData.date,
         modifier = Modifier
-            .size(120.dp)
+            .size(200.dp)
             .clickable {
                 navController.navigate("${Routes.SWIPE_SCREEN}/$position")
             }, contentScale = ContentScale.FillBounds

@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ImageData(
     @SerializedName("copyright")
-    @Expose val copyright: String,
+    @Expose val copyright : String? = null,
     @SerializedName("date")
     @Expose val date: String,
     @SerializedName("explanation")

@@ -34,15 +34,13 @@ fun ShowSwipeItem(imageData: ImageData, modifier: Modifier = Modifier, showHd: B
     Box(modifier = Modifier.fillMaxSize()) {
 
 
-
         SubcomposeAsyncImage(
             model = imageData.hdUrl,
             contentDescription = imageData.date,
             modifier = modifier
                 .fillMaxSize()
-                .clickable {
-
-                }, contentScale = ContentScale.FillBounds
+                .align(alignment = Alignment.Center)
+                , contentScale = ContentScale.FillBounds
         ) {
             val state = painter.state
             if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
@@ -61,25 +59,25 @@ fun ShowSwipeItem(imageData: ImageData, modifier: Modifier = Modifier, showHd: B
 
         }
 
-         Column(modifier = Modifier.align(alignment = Alignment.TopStart)) {
-             Text(
-                 text = " ${imageData.title}",
-                 textAlign = TextAlign.Center,
-                 fontSize = 20.sp,
-                 modifier = Modifier
-                     .padding(start = 10.dp, top = 20.dp, end = 10.dp),
-                 color = Color.White
-             )
+        Column(modifier = Modifier.align(alignment = Alignment.TopStart)) {
+            Text(
+                text = " ${imageData.title}",
+                textAlign = TextAlign.Center,
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .padding(start = 10.dp, top = 20.dp, end = 10.dp),
+                color = Color.White
+            )
 
-             Text(
-                 text = " ${imageData.date}",
-                 fontSize = 16.sp,
-                 modifier = Modifier
-                     .padding(start = 10.dp, top = 10.dp),
-                 color = Color.White
-             )
+            Text(
+                text = " ${imageData.date}",
+                fontSize = 16.sp,
+                modifier = Modifier
+                    .padding(start = 10.dp, top = 10.dp),
+                color = Color.White
+            )
 
-         }
+        }
 
         Column(modifier = Modifier.align(alignment = Alignment.BottomStart)) {
             Text(
@@ -93,7 +91,8 @@ fun ShowSwipeItem(imageData: ImageData, modifier: Modifier = Modifier, showHd: B
                 color = Color.White
             )
 
-            imageData.copyright.let {
+            imageData.copyright?.let {
+
                 Text(
                     text = "CopyRight:  ${imageData.copyright}",
                     fontSize = 16.sp,
@@ -102,16 +101,13 @@ fun ShowSwipeItem(imageData: ImageData, modifier: Modifier = Modifier, showHd: B
                     color = Color.White
                 )
 
+
             }
+
+            Spacer(modifier = Modifier.height(10.dp))
 
 
         }
-
-
-
-
-
-
 
 
     }
